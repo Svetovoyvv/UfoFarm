@@ -5,7 +5,7 @@ services:
       dockerfile: ./docker/front/Dockerfile
     restart: unless-stopped
     ports:
-      - 8893:80
+      - ${FARM_PORT}:80
     depends_on:
       api:
         condition: service_healthy
