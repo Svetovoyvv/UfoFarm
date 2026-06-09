@@ -35,4 +35,4 @@ def submit_flags(flags: list[Flag], config):
             403: FlagStatus.REJECTED,
             200: FlagStatus.ACCEPTED
         }
-        yield FlagSubmit(flag, status.get(r.status_code, FlagStatus.QUEUED), r.text)
+        yield FlagSubmit(flag.flag, status.get(r.status_code, FlagStatus.QUEUED), r.text)
