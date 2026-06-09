@@ -12,7 +12,6 @@ def protocol_error(flags: list[Flag], error: str):
 def submit_flags(flags: list[Flag], config):
     system_url = config.get('SYSTEM_URL', None)
     system_token = config.get('SYSTEM_TOKEN', None)
-    timeout_query = config.get('TIMEOUT_QUERY', 5)
 
     if not system_url:
         return protocol_error(flags, '[Settings] System url not set')
@@ -30,7 +29,6 @@ def submit_flags(flags: list[Flag], config):
 
         r = requests.get(
             system_url + f'/flag?teamid={system_token}&flag={flag}',
-            timeout=timeout_query,
         )
         status = {
             400: FlagStatus.QUEUED,
