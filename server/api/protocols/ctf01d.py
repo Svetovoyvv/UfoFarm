@@ -28,7 +28,7 @@ def submit_flags(flags: list[Flag], config):
     for flag in flags:
 
         r = requests.get(
-            system_url + f'/flag?teamid={system_token}&flag={flag}',
+            system_url + f'/flag?teamid={system_token}&flag={flag.flag}',
         )
         status = {
             400: FlagStatus.QUEUED,
