@@ -29,11 +29,7 @@ def submit_flags(flags: list[Flag], config):
     for flag in flags:
 
         r = requests.get(
-            system_url + '/flag',
-            query={
-                "teamid": system_token,
-                "flag": flags
-            },
+            system_url + f'/flag?teamid={system_token}&flag={flag}',
             timeout=timeout_query,
         )
         status = {
